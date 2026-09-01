@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anotarse a una carrera · UFA</title>
+<link rel="icon" href="img/ufa-logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <a class="brand" href="inicio.html">
+          <img src="img/ufa-logo.png" alt="Escudo de la Universidad Federal Argentina">
+          <div class="brand-text">
+            <div class="name">UFA</div>
+            <div class="tagline">Universidad Federal Argentina</div>
+          </div>
+        </a>
+        <div class="top-icons">
+          <button type="button" title="Configuración" aria-label="Configuración">&#9881;</button>
+          <button type="button" title="Carrito" aria-label="Carrito"><a href="pagos.html" style="color:inherit">&#128722;</a></button>
+          <button type="button" title="Mi cuenta" aria-label="Mi cuenta"><a href="login.html" style="color:inherit">&#128100;</a></button>
+          <button type="button" id="menu-btn" title="Menú" aria-label="Abrir menú">&#9776;</button>
+        </div>
+      </div>
+    </div>
+    <nav class="sub-nav">
+      <div class="container">
+        <ul>
+          <li><a href="inicio.html" class="">Inicio</a></li>
+          <li><a href="pagos.html" class="">Pagos</a></li>
+          <li><a href="investigacion.html" class="">Investigación</a></li>
+          <li><a href="academico.html" class="">Académico</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="mega-menu" id="mega-menu">
+      <a href="ingresantes.html">Información Ingresantes</a>
+      <a href="becas.html">Becas</a>
+      <a href="carreras.html">Carreras</a>
+      <a href="posgrados.html">Posgrados</a>
+      <a href="virtual.html">Modalidad Virtual</a>
+      <a href="carreras.html#licenciaturas">Licenciaturas</a>
+      <a href="convenios.html">Convenios</a>
+      <a href="cursos-eventos.html">Cursos y Eventos</a>
+      <a href="centro-estudiantes.html">Centro de Estudiantes</a>
+      <a href="login.html">Ingresar / Gestión de acceso</a>
+      <a href="anotarse-carrera.html">Anotarse a una carrera</a>
+      <a href="titulacion.html">Titulación y egresados</a>
+    </div>
+  </header>
+  <main data-dfd-proceso="2.0 Anotarse a carrera">
+    <div class="page-title"><div class="container"><h1>Anotarse a una carrera</h1></div></div>
+    <section>
+      <div class="container">
+        <p class="dfd-note">
+          <b>Correspondencia con el DFD:</b> proceso <b>2.0 Anotarse a carrera</b>. Entradas:
+          <i>nombre_alumno, apellido_alumno, fecha_nacimiento_alumno, direccion_alumno, dni_alumno,
+          nro_legajo_alumno, id_carrera_alumno</i>. Salidas: <i>"Guarda"</i> en <b>BD_carreras</b> y
+          <i>"datos_incorrectos"</i> hacia el Alumno.
+        </p>
+        <form id="form-anotarse-carrera" class="two-col">
+          <div>
+            <div class="btn-primary" style="background:linear-gradient(160deg,#c94b4b,#a83030);margin-bottom:24px;display:inline-block">
+              Seleccione la carrera de su interés
+            </div>
+            <div class="field-panel">
+              <div class="field-block">
+                <label for="sel-modalidad">Modalidad</label>
+                <select id="sel-modalidad">
+                  <option value="">Seleccione una modalidad</option>
+                  <option>Presencial</option>
+                  <option>Virtual</option>
+                  <option>Mixta</option>
+                </select>
+              </div>
+              <div class="field-block">
+                <label for="sel-carrera-inscripcion">Carrera</label>
+                <select id="sel-carrera-inscripcion">
+                  <option value="">Seleccione una carrera</option>
+                  <option value="abogacia">Abogacía</option>
+                  <option value="medicina">Medicina</option>
+                  <option value="sistemas">Ingeniería en Sistemas</option>
+                  <option value="audiovisual">Lic. en Cine y Audiovisual</option>
+                </select>
+              </div>
+              <div class="field-block">
+                <label for="sel-turno">Turno</label>
+                <select id="sel-turno">
+                  <option value="">Seleccione un turno</option>
+                  <option>Mañana</option>
+                  <option>Tarde</option>
+                  <option>Noche</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top:22px" class="warning-note">
+              <span class="bang">!</span>
+              <span>Al seleccionar una carrera podrá ver el plan de estudio, requisitos y documentación necesaria.</span>
+            </div>
+            <a href="#" class="link-plan">&#128196; Ver plan de estudio</a>
+          </div>
+
+          <div>
+            <div class="info-panel">
+              <h3>« Información de la carrera »</h3>
+              <div class="row"><span class="ic">&#127891;</span><span id="info-titulo">Título que otorga: A definir</span></div>
+              <div class="row"><span class="ic">&#128337;</span><span id="info-duracion">Duración: A definir</span></div>
+              <div class="row"><span class="ic">&#128214;</span><span id="info-modalidad">Modalidad: A definir</span></div>
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:10px;background:var(--maroon-dark)">
+                Comenzar inscripción &#10003;
+              </button>
+            </div>
+            <div id="carrera-msg" class="status-msg"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <h4>UFA</h4>
+        <p style="max-width:260px;opacity:.85">Universidad Federal Argentina. Formación de excelencia, presencial y virtual, con alcance nacional e internacional.</p>
+      </div>
+      <div>
+        <h4>Accesos</h4>
+        <p><a href="login.html">Gestión de acceso</a></p>
+        <p><a href="pagos.html">Gestión financiera</a></p>
+        <p><a href="academico.html">Gestión académica</a></p>
+        <p><a href="titulacion.html">Titulación y egresados</a></p>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <p><a href="convenios.html">Convenios</a></p>
+        <p><a href="centro-estudiantes.html">Centro de Estudiantes</a></p>
+        <p><a href="investigacion.html">Investigación</a></p>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Universidad Federal Argentina (UFA) — Sitio de demostración académica.</p>
+  </footer>
+<script src="js/main.js"></script>
+</body>
+</html>
