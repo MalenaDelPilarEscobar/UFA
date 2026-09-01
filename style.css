@@ -1,0 +1,674 @@
+/* ============================================================
+   UFA — Universidad Federal Argentina
+   Hoja de estilos general (basada en las capturas del sitio)
+   ============================================================ */
+
+:root{
+  --maroon:        #7a0a0a;
+  --maroon-dark:    #5c0707;
+  --maroon-light:   #9a1414;
+  --lavender:       #aab4ef;
+  --lavender-mid:   #c3cbf5;
+  --lavender-light: #e3e7fc;
+  --lavender-pale:  #f1f3fd;
+  --ink:            #241b3a;
+  --ink-soft:       #4a4468;
+  --red-card-a:     #e2544f;
+  --red-card-b:     #b23230;
+  --white:          #ffffff;
+  --line:           #c8455f;
+  --shadow:         0 10px 30px rgba(36,27,58,.15);
+  --radius:         10px;
+  --serif:          Georgia, "Playfair Display", "Times New Roman", serif;
+  --sans:           "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; }
+:focus-visible{ outline:3px solid #ffd166; outline-offset:2px; }
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ---------- Barra superior ---------- */
+.top-bar{
+  background:var(--maroon);
+  color:var(--white);
+}
+.top-bar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.brand img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
+}
+.brand-text{
+  font-family:var(--serif);
+  line-height:1.05;
+}
+.brand-text .name{
+  font-size:1.9rem;
+  font-weight:700;
+  letter-spacing:1px;
+}
+.brand-text .tagline{
+  font-family:var(--sans);
+  font-size:.68rem;
+  letter-spacing:.5px;
+  opacity:.9;
+  text-transform:uppercase;
+}
+.top-icons{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  font-size:1.25rem;
+}
+.top-icons button{
+  background:none;
+  color:var(--white);
+  font-size:1.25rem;
+  line-height:1;
+  padding:4px;
+  border-radius:6px;
+}
+.top-icons button:hover{ background:rgba(255,255,255,.15); }
+
+/* ---------- Nav secundaria ---------- */
+.sub-nav{
+  background:var(--white);
+  border-bottom:1px solid #e3e3ec;
+}
+.sub-nav ul{
+  display:flex;
+  flex-wrap:wrap;
+}
+.sub-nav a{
+  display:block;
+  padding:14px 22px;
+  font-weight:700;
+  color:var(--ink);
+  border-bottom:3px solid transparent;
+}
+.sub-nav a:hover,
+.sub-nav a.active{
+  color:var(--maroon);
+  border-bottom-color:var(--maroon);
+  background:var(--lavender-pale);
+}
+
+/* ---------- Menu desplegable (hamburguesa) ---------- */
+.mega-menu{
+  position:absolute;
+  right:24px;
+  top:78px;
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:14px;
+  display:none;
+  z-index:50;
+  min-width:230px;
+  border:1px solid #e3e3ec;
+}
+.mega-menu.open{ display:block; }
+.mega-menu a{
+  display:block;
+  padding:9px 12px;
+  border-radius:6px;
+  font-weight:600;
+  color:var(--ink);
+}
+.mega-menu a:hover{ background:var(--lavender-pale); color:var(--maroon); }
+
+/* ---------- Hero / carrusel ---------- */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    repeating-linear-gradient(115deg, rgba(255,255,255,.05) 0 2px, transparent 2px 40px),
+    linear-gradient(120deg,var(--maroon-dark) 0%, var(--maroon) 45%, var(--maroon-light) 100%);
+  color:var(--white);
+  min-height:340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.hero .desks{
+  position:absolute;
+  inset:0;
+  opacity:.18;
+  background-image:
+    linear-gradient(var(--white) 2px, transparent 2px),
+    linear-gradient(90deg, var(--white) 2px, transparent 2px);
+  background-size:60px 60px;
+  transform:skewY(-4deg) scale(1.2);
+}
+.hero-content{ position:relative; z-index:2; padding:50px 20px; }
+.hero-content h1{
+  font-family:var(--serif);
+  font-size:2.6rem;
+  margin:0 0 6px;
+  text-shadow:0 3px 10px rgba(0,0,0,.4);
+  letter-spacing:1px;
+}
+.hero-content p{
+  margin:0;
+  font-weight:700;
+  letter-spacing:.5px;
+  text-decoration:underline;
+  text-underline-offset:5px;
+}
+.hero-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,.15);
+  color:var(--white);
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:1.4rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3;
+}
+.hero-arrow:hover{ background:rgba(255,255,255,.3); }
+.hero-arrow.prev{ left:18px; }
+.hero-arrow.next{ right:18px; }
+.hero-dots{
+  position:relative;
+  z-index:3;
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:18px;
+}
+.hero-dots span{
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,.45);
+}
+.hero-dots span.active{ background:var(--white); }
+
+/* ---------- Grilla de enlaces (home) ---------- */
+.link-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+.link-grid a{
+  position:relative;
+  padding:30px 20px;
+  text-align:center;
+  font-weight:800;
+  font-size:1.05rem;
+  color:var(--maroon);
+  border-bottom:1px dashed var(--line);
+  border-right:1px dashed var(--line);
+}
+.link-grid a:nth-child(3n){ border-right:none; }
+.link-grid a span{
+  display:inline-block;
+  padding-bottom:4px;
+  border-bottom:3px solid var(--maroon);
+}
+.link-grid a:nth-child(6n+1),
+.link-grid a:nth-child(6n+2),
+.link-grid a:nth-child(6n+3){ background:var(--lavender-mid); }
+.link-grid a:nth-child(6n+4),
+.link-grid a:nth-child(6n+5),
+.link-grid a:nth-child(6n+6){ background:var(--lavender-pale); }
+.link-grid a:hover{ background:var(--lavender); }
+
+/* ---------- Encabezado de sección (título con franja) ---------- */
+.page-title{
+  background:var(--lavender-mid);
+  border-bottom:2px solid #9aa4e0;
+  padding:26px 0;
+}
+.page-title h1{
+  font-family:var(--serif);
+  font-size:2.4rem;
+  color:var(--maroon);
+  margin:0;
+}
+.page-title.on-image{
+  background:linear-gradient(180deg, var(--lavender), var(--lavender-mid));
+  position:relative;
+}
+
+/* ---------- Secciones genéricas ---------- */
+section{ padding:46px 0; }
+.section-alt{ background:var(--lavender-pale); }
+h2.section-heading{
+  font-family:var(--serif);
+  color:var(--maroon);
+  font-size:1.7rem;
+  margin-top:0;
+}
+
+/* ---------- Becas ---------- */
+.becas-bg{
+  background:linear-gradient(rgba(60,20,20,.55), rgba(60,20,20,.55)),
+             repeating-linear-gradient(45deg, #8a8a8a 0 3px, #777 3px 6px);
+  padding:50px 0 60px;
+}
+.becas-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.beca-card{
+  background:linear-gradient(160deg,var(--red-card-a),var(--red-card-b));
+  color:var(--white);
+  border:2px solid #7a1c1c;
+  border-radius:4px;
+  padding:22px 20px;
+  box-shadow:var(--shadow);
+}
+.beca-card h3{
+  font-family:var(--serif);
+  text-align:center;
+  font-size:1.35rem;
+  margin:0 0 14px;
+}
+.beca-card p{ margin:0; line-height:1.5; font-weight:600; }
+
+/* ---------- Centro de estudiantes ---------- */
+.cde-wrap{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:34px;
+  align-items:start;
+}
+.cde-text p{
+  background:var(--lavender-mid);
+  padding:14px 18px;
+  margin:0 0 4px;
+  font-weight:700;
+  line-height:1.5;
+}
+.cde-text p:nth-child(odd){ background:var(--lavender-light); }
+.cde-image{
+  border:3px solid var(--maroon);
+  background:
+    linear-gradient(160deg,#5c6bc0,#8e99e6);
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--white);
+  font-family:var(--serif);
+  font-size:1.1rem;
+  text-align:center;
+  padding:20px;
+}
+.btn-sumate{
+  display:block;
+  margin-top:14px;
+  background:var(--maroon-dark);
+  color:var(--white);
+  text-align:center;
+  padding:14px;
+  font-weight:800;
+  letter-spacing:.5px;
+  border-radius:4px;
+}
+.btn-sumate:hover{ background:var(--maroon); }
+
+/* ---------- Posgrados ---------- */
+.posgrado-cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+.posgrado-cols ul{ border-left:2px solid var(--maroon); }
+.posgrado-cols ul:first-child{ border-left:none; }
+.posgrado-cols li{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.15rem;
+  color:var(--ink);
+  padding:10px 0 10px 26px;
+  position:relative;
+}
+.posgrado-cols li::before{
+  content:"•";
+  color:var(--maroon);
+  position:absolute;
+  left:8px;
+}
+
+/* ---------- Convenios ---------- */
+.convenios-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+.convenio-card{
+  border:2px solid var(--ink);
+  border-radius:6px;
+  padding:20px;
+}
+.convenio-card h3{
+  font-family:var(--serif);
+  color:var(--maroon);
+  text-align:center;
+  font-size:1.4rem;
+  margin-top:0;
+}
+.convenio-img{
+  height:170px;
+  border-radius:4px;
+  margin-bottom:16px;
+  background:linear-gradient(160deg,#516090,#8b98c9);
+}
+.convenio-card li{
+  font-weight:700;
+  color:var(--ink);
+  padding:6px 0 6px 20px;
+  position:relative;
+}
+.convenio-card li::before{
+  content:"•";
+  color:var(--maroon);
+  position:absolute;
+  left:2px;
+}
+
+/* ---------- Formularios genéricos ---------- */
+.field-block{ margin-bottom:22px; }
+.field-block label{
+  display:block;
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:700;
+  font-size:1.15rem;
+  margin-bottom:8px;
+  color:var(--ink);
+}
+select, input[type=text], input[type=password], input[type=email]{
+  width:100%;
+  padding:13px 14px;
+  border-radius:6px;
+  border:1px solid #b7bce0;
+  background:var(--white);
+  font-size:1rem;
+  font-family:inherit;
+  color:var(--ink);
+}
+.field-panel{
+  background:linear-gradient(160deg,var(--red-card-a) 0%, var(--red-card-b) 100%);
+  padding:18px;
+  border-radius:6px;
+}
+.field-panel .field-block{ margin-bottom:14px; }
+.field-panel .field-block:last-child{ margin-bottom:0; }
+.field-panel label{ color:var(--white); }
+
+.step-label{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.3rem;
+  color:var(--maroon);
+  margin:30px 0 14px;
+}
+
+.catedra-table{
+  width:100%;
+  border-collapse:collapse;
+  background:var(--lavender);
+  border-radius:6px;
+  overflow:hidden;
+}
+.catedra-table th{
+  font-family:var(--serif);
+  text-decoration:underline;
+  text-align:left;
+  padding:14px 16px;
+  font-size:1.05rem;
+}
+.catedra-table td{
+  padding:10px 16px;
+  font-family:var(--serif);
+  font-style:italic;
+}
+.catedra-table tbody tr{ cursor:pointer; }
+.catedra-table tbody tr:hover{ background:rgba(255,255,255,.35); }
+.catedra-table tbody tr.selected{ background:rgba(255,255,255,.55); font-weight:700; }
+.radio-dot{
+  width:16px; height:16px; border-radius:50%;
+  border:2px solid var(--maroon-dark);
+  display:inline-block;
+}
+.catedra-table tr.selected .radio-dot{ background:var(--maroon-dark); }
+
+.confirm-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:var(--lavender-pale);
+  border:1px solid var(--lavender);
+  border-radius:8px;
+  padding:18px 20px;
+  max-width:320px;
+}
+.confirm-card .icon{ font-size:1.8rem; }
+.confirm-card ul{ font-weight:700; font-family:var(--serif); }
+.confirm-card li{ padding:2px 0; }
+
+.btn-primary{
+  background:linear-gradient(160deg,var(--red-card-a),var(--red-card-b));
+  color:var(--white);
+  font-family:var(--serif);
+  font-weight:800;
+  font-style:italic;
+  font-size:1.15rem;
+  padding:16px 26px;
+  border-radius:6px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:var(--shadow);
+}
+.btn-primary:hover{ filter:brightness(1.07); }
+
+.warning-note{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:#c94b4b;
+  color:var(--white);
+  padding:14px 16px;
+  border-radius:6px;
+  font-weight:700;
+  max-width:480px;
+}
+.warning-note .bang{
+  background:var(--maroon-dark);
+  min-width:34px;height:34px;
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+}
+
+.info-panel{
+  background:linear-gradient(160deg,var(--red-card-a),var(--red-card-b));
+  color:var(--white);
+  padding:24px 26px;
+  border-radius:6px;
+  max-width:420px;
+}
+.info-panel h3{
+  font-family:var(--serif);
+  font-style:italic;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  padding-bottom:10px;
+}
+.info-panel .row{ display:flex; gap:10px; align-items:center; margin:14px 0; font-weight:700; }
+.info-panel .ic{ font-size:1.3rem; }
+
+.link-plan{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:16px;
+  font-weight:700;
+  border-bottom:2px solid var(--maroon);
+  padding-bottom:2px;
+}
+
+/* ---------- Layout de dos columnas para formularios de inscripción ---------- */
+.two-col{
+  display:grid;
+  grid-template-columns:1.2fr .9fr;
+  gap:40px;
+  align-items:start;
+}
+
+/* ---------- Login / Gestión de acceso ---------- */
+.login-wrap{
+  max-width:420px;
+  margin:0 auto;
+  background:var(--lavender-pale);
+  border:1px solid var(--lavender);
+  border-radius:10px;
+  padding:34px 32px;
+  box-shadow:var(--shadow);
+}
+.login-wrap h1{
+  font-family:var(--serif);
+  color:var(--maroon);
+  text-align:center;
+  margin-top:0;
+}
+.status-msg{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:6px;
+  font-weight:700;
+  display:none;
+}
+.status-msg.ok{ background:#dff3e2; color:#1e7a34; display:block; }
+.status-msg.err{ background:#fde3e1; color:#a32a1f; display:block; }
+
+/* ---------- Pagos ---------- */
+.pago-list{ border:1px solid var(--lavender); border-radius:8px; overflow:hidden; }
+.pago-row{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 18px;
+  border-bottom:1px solid var(--lavender-light);
+  font-weight:700;
+}
+.pago-row:last-child{ border-bottom:none; }
+.pago-row .estado{
+  padding:3px 12px;
+  border-radius:20px;
+  font-size:.8rem;
+  color:var(--white);
+}
+.estado.pagado{ background:#2e9e52; }
+.estado.pendiente{ background:#c94b4b; }
+.aviso-cobro{
+  background:var(--maroon);
+  color:var(--white);
+  padding:14px 18px;
+  border-radius:6px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+/* ---------- Tarjeta simple de contenido (Ingresantes, Investigación, etc.) ---------- */
+.simple-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.simple-card{
+  background:var(--lavender-pale);
+  border-top:5px solid var(--maroon);
+  padding:22px;
+  border-radius:6px;
+}
+.simple-card h3{ font-family:var(--serif); color:var(--maroon); margin-top:0; }
+
+/* ---------- Pie de página ---------- */
+footer{
+  background:var(--maroon-dark);
+  color:var(--white);
+  padding:34px 0;
+  margin-top:20px;
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:18px;
+}
+footer h4{ font-family:var(--serif); margin:0 0 10px; }
+footer a{ opacity:.85; }
+footer a:hover{ opacity:1; text-decoration:underline; }
+.footer-bottom{
+  text-align:center;
+  font-size:.8rem;
+  opacity:.7;
+  margin-top:22px;
+}
+
+/* ---------- Nota de correspondencia con el DFD (visible para fines académicos) ---------- */
+.dfd-note{
+  font-size:.75rem;
+  color:var(--ink-soft);
+  background:var(--lavender-pale);
+  border-left:4px solid var(--maroon);
+  padding:8px 14px;
+  margin:0 0 22px;
+  font-family:var(--sans);
+}
+.dfd-note b{ color:var(--maroon); }
+
+/* ---------- Responsive ---------- */
+@media (max-width:880px){
+  .link-grid{ grid-template-columns:repeat(2,1fr); }
+  .link-grid a:nth-child(3n){ border-right:1px dashed var(--line); }
+  .link-grid a:nth-child(2n){ border-right:none; }
+  .cde-wrap, .posgrado-cols, .convenios-grid, .two-col, .simple-cards, .becas-grid{
+    grid-template-columns:1fr;
+  }
+  .hero-content h1{ font-size:1.8rem; }
+}
+@media (max-width:560px){
+  .link-grid{ grid-template-columns:1fr; }
+  .link-grid a{ border-right:none !important; }
+  .brand-text .name{ font-size:1.4rem; }
+  .top-icons{ gap:14px; }
+}
